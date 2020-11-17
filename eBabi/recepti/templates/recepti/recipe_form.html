@@ -1,0 +1,13 @@
+{% extends 'recepti/base.html' %}
+
+{% block title %}Nov recept{% endblock %}
+{% block content %}
+	<h1>Dodaj recept</h1>
+	<form method="POST">
+    {% csrf_token %}
+    <table>
+      {{ form }}
+    </table>
+    <input type="submit" value="Potrdi">
+  </form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'recepti/base.html' %}
+
+{% block title %}{{ recipe.title }}{% endblock %}
+{% block content %}
+	<h1>{{ recipe.title }}</h1>
+	<article>
+		<p>Čas priprave: {{ recipe.preparation_time }}</p>
+		<p>Sestavine:</p>
+		<ul>
+			{% for ri in recipe.ingredient_list.all %}
+				<li>{{ ri.ingredient }}: {{ ri.quantity }} {{ ri.unit.label }}</li>
+			{% endfor %}
+		</ul>
+		<p>{{ recipe.content }}</p>
+	</article>
+{% endblock %}

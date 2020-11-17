@@ -14,7 +14,8 @@
 					<li>{{ ri.ingredient }}: {{ ri.quantity }} {{ ri.unit.label }}</li>
 				{% endfor %}
 			</ul>
-			<p>{{ r.content }}</p>
+			<p>{{ r.content|truncatechars:10 }} <a href="{% url 'recipe-detail' r.id %}">vec &raquo;</a></p>
 		</article>
 	{% endfor %}
+	Dodaj svoj recept: <a href="{% url 'recipe-create' %}">klikni tukaj!</a>
 {% endblock %}

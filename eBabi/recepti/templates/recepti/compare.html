@@ -1,0 +1,12 @@
+{% extends 'recepti/base.html' %}
+
+{% block title %}Primerjaj recepta{% endblock %}
+{% block content %}
+	<h1>Primerjaj recepta</h1>
+	<form method="GET">
+    <table>
+      {{ form }}
+    </table>
+    <input type="submit" value="Potrdi">
+  </form>
+{% endblock %}
