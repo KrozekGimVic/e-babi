@@ -1,11 +1,12 @@
 {% extends 'recepti/base.html' %}
+{% load i18n %}
 
 {% block title %}{{ recipe.title }}{% endblock %}
 {% block content %}
 	<h1>{{ recipe.title }}</h1>
 	<article>
 		<p>Čas priprave: {{ recipe.preparation_time }}</p>
-		<p>Sestavine:</p>
+		<p>{% trans "Ingredients" %}:</p>
 		<ul>
 			{% for ri in recipe.ingredient_list.all %}
 				<li>{{ ri.ingredient }}: {{ ri.quantity }} {{ ri.unit.label }}</li>

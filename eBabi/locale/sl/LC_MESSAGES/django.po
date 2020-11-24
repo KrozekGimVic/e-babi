@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-24 17:38+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Jure Slak <jure.slak@gmail.com>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
+
+#: recepti/templates/recepti/homepage.html:4
+msgid "Homepage"
+msgstr "Prva stran"
+
+#. Translators: Page title
+#: recepti/templates/recepti/homepage.html:7
+#: recepti/templates/recepti/homepage.html:11
+msgid "Recipes"
+msgstr "Recepti"
+
+#: recepti/templates/recepti/homepage.html:14
+msgid "Current time"
+msgstr "Trenutni čas"
+
+#: recepti/templates/recepti/homepage.html:20
+#, python-format
+msgid "Preparation time: %(prep_time)s"
+msgstr "Čas priprave: %(prep_time)s"
+
+#: recepti/templates/recepti/homepage.html:21
+#: recepti/templates/recepti/recipe_detail.html:9
+msgid "Ingredients"
+msgstr "Sestavine"
+
+#: recepti/templates/recepti/homepage.html:27
+msgctxt "read more prompt"
+msgid "more"
+msgstr "več"
+
+#: recepti/templates/recepti/homepage.html:31
+#, python-format
+msgid ""
+"\n"
+"\t\tAdd new recipe: <a href=\"%(create_url)s\">click here!</a>\n"
+"\t"
+msgstr ""
+"\n"
+"\t\tDodaj svoj recept: <a href=\"%(create_url)s\">klikni tukaj!</a>\n"
+"\t"
+
+#, fuzzy, python-format
+#~| msgid "There is only one object."
+#~| msgid_plural "There are %(counter)s objects."
+#~ msgid "There is only one object."
+#~ msgid_plural "There are %(counter)s objects."
+#~ msgstr[0] "imamo le en objekt"
+#~ msgstr[1] "imamo %(counter)s objekta"
+#~ msgstr[2] "imamo %(counter)s objekte"
+#~ msgstr[3] "imamo %(counter)s objektov"
+
+#, fuzzy, python-format
+#~ msgid "latest recipe"
+#~ msgid_plural "%(counter)s latest recipes"
+#~ msgstr[0] "zadnji recept"
+#~ msgstr[1] "zadnja recepta"
+#~ msgstr[2] "%(counter)s zadnji recepti"
+#~ msgstr[3] "%(counter)s zadnjih receptov"

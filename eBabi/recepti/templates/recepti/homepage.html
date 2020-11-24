@@ -1,21 +1,40 @@
 {% extends 'recepti/base.html' %}
+{% load i18n %}
+{% load tz %}
 
-{% block title %}Prva stran{% endblock %}
+{% block title %}{% trans "Homepage" %}{% endblock %}
 {% block content %}
-	<h1>Recepti</h1>
-	<p>To so zadnji recepti:</p>
+	{# Translators: Page title #}
+	<h1>{% trans "Recipes" %}</h1>
+	{% get_current_language as LANG %}
+	{% if LANG != 'en' %}
+		{% language 'en' %}
+			<h1>{% trans "Recipes" %}</h1>
+		{% endlanguage %}
+	{% endif %}
+	{% trans "Current time" %}: {{ date }}
+
+	{% timezone "Europe/Dublin" %}
+			Dublin time: {{ date }}
+	{% endtimezone %}
+
+	{#	{% blocktrans count counter=latest|length %}There is only one object.{% plural %}There are {{ counter }} objects.{% endblocktrans %}#}
+	{#	<p>{% blocktrans count counter=latest|length %}latest recipe{% plural %}{{ counter }} latest recipes{% endblocktrans %}:</p>#}
 	{% for r in latest %}
 		<article>
 			<h2>{{ r.title }}</h2>
-			<p>Čas priprave: {{ r.preparation_time }}</p>
-			<p>Sestavine:</p>
+			<p>{% blocktrans with prep_time=r.preparation_time %}Preparation time: {{ prep_time }}{% endblocktrans %}</p>
+			<p>{% trans "Ingredients" %}:</p>
 			<ul>
 				{% for ri in r.ingredient_list.all %}
 					<li>{{ ri.ingredient }}: {{ ri.quantity }} {{ ri.unit.label }}</li>
 				{% endfor %}
 			</ul>
-			<p>{{ r.content|truncatechars:10 }} <a href="{% url 'recipe-detail' r.id %}">vec &raquo;</a></p>
+			<p>{{ r.content|truncatechars:10 }} <a href="{% url 'recipe-detail' r.id %}">{% trans "more" context "read more prompt" %} &raquo;</a></p>
 		</article>
 	{% endfor %}
-	Dodaj svoj recept: <a href="{% url 'recipe-create' %}">klikni tukaj!</a>
+	{% url 'recipe-create' as create_url %}
+	{% blocktrans %}
+		Add new recipe: <a href="{{ create_url }}">click here!</a>
+	{% endblocktrans %}
 {% endblock %}
